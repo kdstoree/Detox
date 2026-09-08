@@ -10,10 +10,10 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Tahoma', sans-serif;
-            scroll-behavior: smooth; /* دا ڕاستەوخۆ بچتە سەر پشکێ ب حەرەکەتا نەرم */
+            scroll-behavior: smooth;
         }
         body {
-            background-color: #0b0b0b; /* ڕەنگێ ڕەشێ تاری و نایاب */
+            background-color: #0b0b0b;
             color: #f3f4f6;
             text-align: center;
             padding: 20px;
@@ -21,18 +21,17 @@
         .container {
             max-width: 550px;
             margin: 20px auto;
-            background: #141414; /* ڕەشێ کارتێ */
+            background: #141414;
             padding: 25px 15px;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15); /* سێبەرەکا ڕەنگێ زێری (Gold) */
-            border: 1px solid #332900; /* سنۆرەکێ زێریێ تاری */
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+            border: 1px solid #332900;
         }
         
-        /* ناڤێ بچویکتر، جوانتر و ب ڕووناهیا زێری (Gold Glow) */
         .logo-area {
             font-size: 20px;
             font-weight: bold;
-            color: #ffd700; /* رەنگێ زێری (Gold) */
+            color: #ffd700;
             margin-bottom: 15px;
             letter-spacing: 1px;
             display: flex;
@@ -46,7 +45,6 @@
             font-size: 16px;
         }
 
-        /* مێنۆیا سەرەکی یا ڕێکخستی (لینک بۆ پشکێن جودا) */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -73,7 +71,6 @@
             background: #2a2200;
         }
 
-        /* بەشێن مالپەڕی (Sections) */
         .section-box {
             margin-bottom: 35px;
             text-align: right;
@@ -308,7 +305,6 @@
         .snapchat-btn { background-color: #FFFC00; color: #000; flex: 1; max-width: 220px; }
         .telegram-btn { background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); flex: 1; max-width: 220px; }
 
-        /* واتسابا لە خوارێ */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -345,12 +341,10 @@
 <body>
 
     <div class="container">
-        <!-- ناڤێ نوو ب دیزاینا زێری (Gold) و ب تەنیشتڤە ستێرچکە ب پاوەری -->
         <div class="logo-area">
             <span>✨</span> DETOX CENTER DUHOK <span>✨</span>
         </div>
 
-        <!-- مێنۆیا سەرەکی (کە دەما تبلا خۆ لێ ددەی ڕاستەوخۆ دچتە سەر بەشێ مەبەست) -->
         <div class="nav-menu">
             <a href="#pagesSec">پەیجین مە</a>
             <a href="#productsSec">بەرهەمین مە</a>
@@ -358,31 +352,28 @@
             <a href="#contactSec">پەیوەندی</a>
         </div>
 
-        <!-- بەشێ دەباریا مە (About Us) -->
         <div class="section-box" id="aboutSec">
             <h3>🌿 دەباریا مە (About Us)</h3>
             <p>مە کۆمپانیایا DETOX CENTER DUHOK بۆ بازرگانیا گشتی ل دهۆکێ. ئەم باشترین و ئۆرجینالترین بەرهەمێن تورکی (مارکێن BANDIS & MERI & ALA) بۆ ساخلەمی و جوانیێ پێشکێش بەستەرێن خۆ دکەین ب گەرەنتیەکا تەواو.</p>
         </div>
 
-        <!-- بەشێ بەرهەمان -->
         <div class="section-box" id="productsSec">
             <h3>✨ بەرهەمێن مە (Products)</h3>
         </div>
 
-        <!-- کاردێ بەرهەمی ب سلاید -->
+        <!-- 1. بەرهەمێ یەکێ: Meri Detox Premium -->
         <div class="product-card">
-            <div class="media-container" id="mediaSlider">
-                <img src="meri1 .JPG" class="active slide-item" alt="Meri Detox 1">
-                <img src="meri2.JPG" class="slide-item" alt="Meri Detox 2">
-                <img src="meri3.JPG" class="slide-item" alt="Meri Detox 3">
-                <img src="meri4.JPG" class="slide-item" alt="Meri Detox 4">
-                <img src="meri5.JPG" class="slide-item" alt="Meri Detox 5">
-                <video src="meri_video1.mp4" class="slide-item" controls></video>
+            <div class="media-container" id="mediaSlider1">
+                <img src="meri1 .JPG" class="active slide-item-1" alt="Meri Detox 1">
+                <img src="meri2.JPG" class="slide-item-1" alt="Meri Detox 2">
+                <img src="meri3.JPG" class="slide-item-1" alt="Meri Detox 3">
+                <img src="meri4.JPG" class="slide-item-1" alt="Meri Detox 4">
+                <img src="meri5.JPG" class="slide-item-1" alt="Meri Detox 5">
+                <video src="meri_video1.mp4" class="slide-item-1" controls></video>
 
-                <button class="slider-btn prev-btn" onclick="changeSlide(1)">❮</button>
-                <button class="slider-btn next-btn" onclick="changeSlide(-1)">❯</button>
-                
-                <div class="slide-counter" id="slideCounter">1 / 6</div>
+                <button class="slider-btn prev-btn" onclick="changeSlide(1, -1)">❮</button>
+                <button class="slider-btn next-btn" onclick="changeSlide(1, 1)">❯</button>
+                <div class="slide-counter" id="slideCounter1">1 / 6</div>
             </div>
 
             <div class="product-body">
@@ -403,6 +394,39 @@
             </div>
         </div>
 
+        <!-- 2. بەرهەمێ دووێ: Alâ Coffee (قەهوا ئالّا) -->
+        <div class="product-card">
+            <div class="media-container" id="mediaSlider2">
+                <img src="coffee1.JPG" class="active slide-item-2" alt="Alâ Coffee 1">
+                <img src="coffee2.JPG" class="slide-item-2" alt="Alâ Coffee 2">
+                <img src="coffee3.JPG" class="slide-item-2" alt="Alâ Coffee 3">
+                <img src="coffee4.JPG" class="slide-item-2" alt="Alâ Coffee 4">
+                <img src="coffee5.JPG" class="slide-item-2" alt="Alâ Coffee 5">
+
+                <button class="slider-btn prev-btn" onclick="changeSlide(2, -1)">❮</button>
+                <button class="slider-btn next-btn" onclick="changeSlide(2, 1)">❯</button>
+                <div class="slide-counter" id="slideCounter2">1 / 5</div>
+            </div>
+
+            <div class="product-body">
+                <div class="badge-hot">☕ بەرهەمێ نوی | قەهوا ئالّا</div>
+                <div class="product-title">Alâ Coffee (قەهوا ئالّا)</div>
+                <div class="product-desc">
+                    ☕ رۆژه‌كا پرچ تام و لێخۆربوون دگەل قەهوا ئالّا!
+                    گه‌ر ته‌ بڤێت ب شێوازه‌كێ ساخلەم و ب تامه‌كا خۆش کێشا خۆ رێكخه‌ی و پشتەڤانیا چالاکیا له‌شێ خۆ بکەی، Alâ Coffee هەلبژاردنا ته‌ یا نموونه‌یی یه‌.
+                    
+                     خاسیەتێن سەرەکی یێن قەهوا ئالّا بۆ رێكخستنا کێشی:
+                    • هاریکارە بۆ کێمکرنا ئیشتهاتێ و دروستکرنا هەستا تێربوونێ ب درێژاهیا رۆژێ.
+                    • رێژا سووتاندنا چەوری و چالاککرنا متابۆلیزمێ ل لەشی بلند دکەت.
+                    • هاریكارە بۆ ژێبرنا ئاڤا زێدە (ئۆدەم) و پاقژکرنا له‌شی ژ ژەهران.
+                    • تامەکە نایاب دابین دکەت کو هەم کەیفا تە خۆش دکەت و هەم پشکا تە یا رۆژانە یا دیتوکسێ ب جی دئارێت.
+                </div>
+                <div class="product-price">40,000 د.ع</div>
+                <div class="product-guarantee">🛡️ ضمان دگەلدایە دەما هەیفەکی دا کێشا تە نەهێتە خاری دێ پارێن تە هێنە ڤەگەراندن</div>
+                <div class="product-guarantee">⚡ ستانده‌ر: هەیڤی 5 تا 7 کیلۆیان کێم دکەت</div>
+            </div>
+        </div>
+
         <!-- فۆڕما داواکرنێ -->
         <div class="order-section" id="contactSec">
             <h3>🛒 داواکرنا بەرهەمی</h3>
@@ -412,6 +436,7 @@
                     <select id="productSelect" class="form-control" required>
                         <option value="" disabled selected>-- بەرهەمی هەلبژێرە --</option>
                         <option value="Meri Detox Premium - 55,000 د.ع">Meri Detox Premium - 55,000 د.ع</option>
+                        <option value="Alâ Coffee - 40,000 د.ع">Alâ Coffee (قەهوا ئالّا) - 40,000 د.ع</option>
                     </select>
                 </div>
 
@@ -434,7 +459,7 @@
             </form>
         </div>
 
-        <!-- تۆڕێن جڤاکی (Social Links) -->
+        <!-- تۆڕێن جڤاکی -->
         <div class="social-section" id="pagesSec">
             <h4>مە لە تۆڕێن کۆمەڵایەتی بپەیڕەوە</h4>
             <div class="social-grid">
@@ -474,7 +499,6 @@
         </div>
     </div>
 
-    <!-- دوگمەیا واتسابی یا ڕەخێ خوارێ -->
     <a href="https://wa.me/9647508913667" class="whatsapp-float" target="_blank" title="WhatsApp">
         <svg viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -482,26 +506,25 @@
     </a>
 
     <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide-item');
-        const counter = document.getElementById('slideCounter');
+        // سیستەمێ سلایدا جودا بۆ هەر بەرهەمی
+        let currentIndexes = { 1: 0, 2: 0 };
 
-        function showSlide(index) {
-            slides.forEach(slide => {
-                slide.classList.remove('active');
-                if(slide.tagName === 'VIDEO') slide.pause();
-            });
+        function showSlide(productNum, index) {
+            const slides = document.querySelectorAll('.slide-item-' + productNum);
+            const counter = document.getElementById('slideCounter' + productNum);
             
-            if (index >= slides.length) currentIndex = 0;
-            if (index < 0) currentIndex = slides.length - 1;
+            slides.forEach(slide => slide.classList.remove('active'));
             
-            slides[currentIndex].classList.add('active');
-            counter.innerText = `${currentIndex + 1} / ${slides.length}`;
+            if (index >= slides.length) currentIndexes[productNum] = 0;
+            else if (index < 0) currentIndexes[productNum] = slides.length - 1;
+            else currentIndexes[productNum] = index;
+            
+            slides[currentIndexes[productNum]].classList.add('active');
+            if(counter) counter.innerText = `${currentIndexes[productNum] + 1} / ${slides.length}`;
         }
 
-        function changeSlide(direction) {
-            currentIndex += direction;
-            showSlide(currentIndex);
+        function changeSlide(productNum, direction) {
+            showSlide(productNum, currentIndexes[productNum] + direction);
         }
 
         function sendToWhatsApp(event) {
