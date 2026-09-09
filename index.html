@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="ku" dir="rtl" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -197,7 +197,6 @@
             font-weight: bold;
         }
 
-        /* فۆڕما داواکرنێ و پشکا زێدەکرنا دانان */
         .order-section {
             background: #141414;
             border: 1px solid #382c00;
@@ -235,7 +234,6 @@
             outline: none;
         }
         
-        /* باکسا نیشاندانا بهاء‌ی گشتی (Total Price Box) */
         .total-box {
             background: #1f1a00;
             border: 1px solid #ffd700;
@@ -323,6 +321,37 @@
         .snapchat-btn { background-color: #FFFC00; color: #000; flex: 1; max-width: 220px; }
         .telegram-btn { background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); flex: 1; max-width: 220px; }
 
+        /* دوگمەیێن بازنەیی بۆ گۆهڕینا زمانان (ل ڕەخێ چەپێ یان ژۆری) */
+        .lang-float-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .lang-circle-btn {
+            width: 48px;
+            height: 48px;
+            background-color: #1a1a1a;
+            border: 2px solid #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.3s, background 0.3s;
+            text-decoration: none;
+        }
+        .lang-circle-btn:hover {
+            transform: scale(1.1);
+            background-color: #2a2200;
+        }
+
+        /* دوگمەیا واتسابی یا ڕەخێ خوارێ */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -358,25 +387,32 @@
 </head>
 <body>
 
+    <!-- دوگمەیێن بازنەیی بۆ زمانان (عەرەبی، کوردی بادینی، کوردی سورانی) -->
+    <div class="lang-float-container">
+        <button class="lang-circle-btn" onclick="changeLanguage('ar')" title="العربية">🇮🇶</button>
+        <button class="lang-circle-btn" onclick="changeLanguage('ku-bad')" title="كوردی (بادینی)">☀️</button>
+        <button class="lang-circle-btn" onclick="changeLanguage('ku-sor')" title="کوردی (سۆرانی)">☀️</button>
+    </div>
+
     <div class="container">
         <div class="logo-area">
-            <span>✨</span> DETOX CENTER DUHOK <span>✨</span>
+            <span>✨</span> <span id="siteTitle">DETOX CENTER DUHOK</span> <span>✨</span>
         </div>
 
         <div class="nav-menu">
-            <a href="#pagesSec">پەیجین مە</a>
-            <a href="#productsSec">بەرهەمین مە</a>
-            <a href="#aboutSec">دەباریا مە</a>
-            <a href="#contactSec">پەیوەندی</a>
+            <a href="#pagesSec" id="menuPages">پەیجین مە</a>
+            <a href="#productsSec" id="menuProducts">بەرهەمین مە</a>
+            <a href="#aboutSec" id="menuAbout">دەباریا مە</a>
+            <a href="#contactSec" id="menuContact">پەیوەندی</a>
         </div>
 
         <div class="section-box" id="aboutSec">
-            <h3>🌿 دەباریا مە (About Us)</h3>
-            <p>مە کۆمپانیایا DETOX CENTER DUHOK بۆ بازرگانیا گشتی ل دهۆکێ. ئەم باشترین و ئۆرجینالترین بەرهەمێن تورکی (مارکێن BANDIS & MERI & ALA) بۆ ساخلەمی و جوانیێ پێشکێش بەستەرێن خۆ دکەین ب گەرەنتیەکا تەواو.</p>
+            <h3 id="aboutTitle">🌿 دەباریا مە (About Us)</h3>
+            <p id="aboutText">مە کۆمپانیایا DETOX CENTER DUHOK بۆ بازرگانیا گشتی ل دهۆکێ. ئەم باشترین و ئۆرجینالترین بەرهەمێن تورکی (مارکێن BANDIS & MERI & ALA) بۆ ساخلەمی و جوانیێ پێشکێش بەستەرێن خۆ دکەین ب گەرەنتیەکا تەواو.</p>
         </div>
 
         <div class="section-box" id="productsSec">
-            <h3>✨ بەرهەمێن مە (Products)</h3>
+            <h3 id="productsTitle">✨ بەرهەمێن مە (Products)</h3>
         </div>
 
         <!-- 1. بەرهەمێ یەکێ: Meri Detox Premium -->
@@ -395,9 +431,9 @@
             </div>
 
             <div class="product-body">
-                <div class="badge-hot">🔥 زۆرترین فرۆشراو | كواليتى به‌رز</div>
+                <div class="badge-hot" id="badge1">🔥 زۆرترین فرۆشراو | كواليتى به‌رز</div>
                 <div class="product-title">Meri Detox Premium</div>
-                <div class="product-desc">
+                <div class="product-desc" id="desc1">
                     🔥 شۆره‌شا ڤه‌گه‌ڕاندنا ساخله‌می و رێكخستنا له‌شی!
                     گه‌ر ته‌ بڤێت بێی ماندووبوون و ب شێوازه‌كێ سروشتی كێشا خۆ كێم بکه‌ی و ژ ژه‌هرێن له‌شی رزگار ببى، Meri Detox Premium هەلبژاردنا ته‌ یا ئێكه‌م و متمانه‌پێكری یه‌! 🌱✨
                     
@@ -407,8 +443,8 @@
                     • هه‌ستا تێربوونێ ددەت و هوشیاریا ته‌ درێژژيان دکه‌ت.
                 </div>
                 <div class="product-price">55,000 د.ع</div>
-                <div class="product-guarantee">🛡️ ضمان دگەلدایە بۆ هەیفەکی تو فایندەی نەبینی دێ پارێن تە هێنە ڤەگەراندن</div>
-                <div class="product-guarantee">⚡ ستانده‌ر: هەیڤی 7 تا 10 کیلۆیان کێم دکەت</div>
+                <div class="product-guarantee" id="guar1">🛡️ ضمان دگەلدایە بۆ هەیفەکی تو فایندەی نەبینی دێ پارێن تە هێنە ڤەگەراندن</div>
+                <div class="product-guarantee" id="std1">⚡ ستانده‌ر: هەیڤی 7 تا 10 کیلۆیان کێم دکەت</div>
             </div>
         </div>
 
@@ -427,9 +463,9 @@
             </div>
 
             <div class="product-body">
-                <div class="badge-hot">☕ بەرهەمێ نوی | قەهوا ئالّا</div>
+                <div class="badge-hot" id="badge2">☕ بەرهەمێ نوی | قەهوا ئالّا</div>
                 <div class="product-title">Alâ Coffee (قەهوا ئالّا)</div>
-                <div class="product-desc">
+                <div class="product-desc" id="desc2">
                     ☕ رۆژه‌كا پرچ تام و لێخۆربوون دگەل قەهوا ئالّا!
                     گه‌ر ته‌ بڤێت ب شێوازه‌كێ ساخلەم و ب تامه‌كا خۆش کێشا خۆ رێكخه‌ی و پشتەڤانیا چالاکیا له‌شێ خۆ بکەی، Alâ Coffee هەلبژاردنا ته‌ یا نموونه‌یی یه‌.
                     
@@ -440,33 +476,31 @@
                     • تامەکە نایاب دابین دکەت کو هەم کەیفا تە خۆش دکەت و هەم پشکا تە یا رۆژانە یا دیتوکسێ ب جی دئارێت.
                 </div>
                 <div class="product-price">40,000 د.ع</div>
-                <div class="product-guarantee">🛡️ ضمان دگەلدایە دەما هەیفەکی دا کێشا تە نەهێتە خاری دێ پارێن تە هێنە ڤەگەراندن</div>
-                <div class="product-guarantee">⚡ ستانده‌ر: هەیڤی 5 تا 7 کیلۆیان کێم دکەت</div>
+                <div class="product-guarantee" id="guar2">🛡️ ضمان دگەلدایە دەما هەیفەکی دا کێشا تە نەهێتە خاری دێ پارێن تە هێنە ڤەگەراندن</div>
+                <div class="product-guarantee" id="std2">⚡ ستانده‌ر: هەیڤی 5 تا 7 کیلۆیان کێم دکەت</div>
             </div>
         </div>
 
-        <!-- فۆڕما داواکرنێ ب پشکا زێدەکرنا دانان و کومکرنا بهایان -->
+        <!-- فۆڕما داواکرنێ -->
         <div class="order-section" id="contactSec">
-            <h3>🛒 داواکرنا بەرهەمی و زێدەکرنا دانان</h3>
+            <h3 id="orderTitle">🛒 داواکرنا بەرهەمی و زێدەکرنا دانان</h3>
             <form id="orderForm" onsubmit="sendToWhatsApp(event)">
                 
-                <!-- 1. بەشێ چایێ میری -->
                 <div class="form-group">
-                    <label for="qtyMeri">چایێ میری (Meri Detox) - 55,000 د.ع:</label>
+                    <label for="qtyMeri" id="labelMeri">چایێ میری (Meri Detox) - 55,000 د.ع:</label>
                     <select id="qtyMeri" class="form-control" onchange="calculateTotal()">
-                        <option value="0">0 (وەرناگریت)</option>
-                        <option value="1" selected>1 دانە</option>
+                        <option value="0" id="optMeri0">0 (وەرناگریت)</option>
+                        <option value="1" selected id="optMeri1">1 دانە</option>
                         <option value="2">2 دانە</option>
                         <option value="3">3 دانە</option>
                         <option value="4">4 دانە</option>
                     </select>
                 </div>
 
-                <!-- 2. بەشێ قەهوا ئالّا -->
                 <div class="form-group">
-                    <label for="qtyCoffee">قەهوا ئالّا (Alâ Coffee) - 40,000 د.ع:</label>
+                    <label for="qtyCoffee" id="labelCoffee">قەهوا ئالّا (Alâ Coffee) - 40,000 د.ع:</label>
                     <select id="qtyCoffee" class="form-control" onchange="calculateTotal()">
-                        <option value="0" selected>0 (وەرناگریت)</option>
+                        <option value="0" selected id="optCoffee0">0 (وەرناگریت)</option>
                         <option value="1">1 دانە</option>
                         <option value="2">2 دانە</option>
                         <option value="3">3 دانە</option>
@@ -474,34 +508,33 @@
                     </select>
                 </div>
 
-                <!-- باکسا نیشاندانا بهایێ گشتی خودکار -->
                 <div class="total-box">
-                    <span>بهایێ گشتی (المجموع):</span>
+                    <span id="totalLabel">بهایێ گشتی (المجموع):</span>
                     <span class="total-price-val" id="totalPriceDisplay">55,000 د.ع</span>
                 </div>
 
                 <div class="form-group">
-                    <label for="customerName">ناڤێ تە:</label>
+                    <label for="customerName" id="labelName">ناڤێ تە:</label>
                     <input type="text" id="customerName" class="form-control" placeholder="بۆ نموونە: ئەحمەد محەمەد" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="customerCity">باژێر / جهـ:</label>
+                    <label for="customerCity" id="labelCity">باژێر / جهـ:</label>
                     <input type="text" id="customerCity" class="form-control" placeholder="بۆ نموونە: دهۆک" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="customerPhone">ژمارا تەلەفۆنێ:</label>
+                    <label for="customerPhone" id="labelPhone">ژمارا تەلەفۆنێ:</label>
                     <input type="tel" id="customerPhone" class="form-control" placeholder="0750xxxxxxx" required>
                 </div>
 
-                <button type="submit" class="order-btn">💬 ڕاستەوخۆ هنارتن بۆ واتسابی</button>
+                <button type="submit" class="order-btn" id="submitBtn">💬 ڕاستەوخۆ هنارتن بۆ واتسابی</button>
             </form>
         </div>
 
         <!-- تۆڕێن جڤاکی -->
         <div class="social-section" id="pagesSec">
-            <h4>مە لە تۆڕێن کۆمەڵایەتی بپەیڕەوە</h4>
+            <h4 id="socialTitle">مە لە تۆڕێن کۆمەڵایەتی بپەیڕەوە</h4>
             <div class="social-grid">
                 <div class="social-row">
                     <a href="https://www.instagram.com/detoxcenterduhok?stkn=aHE5bGF6cTQ0OTRj&utm_source=qr" class="social-btn instagram-btn" target="_blank">
@@ -566,7 +599,6 @@
             showSlide(productNum, currentIndexes[productNum] + direction);
         }
 
-        // کاریا هژمارکدنا خودکار یا بهاء‌ی گشتی
         function calculateTotal() {
             let qtyMeri = parseInt(document.getElementById('qtyMeri').value) || 0;
             let qtyCoffee = parseInt(document.getElementById('qtyCoffee').value) || 0;
@@ -579,7 +611,131 @@
             document.getElementById('totalPriceDisplay').innerText = total.toLocaleString() + ' د.ع';
         }
 
-        // دەما پەیام دچتە واتسابی
+        // فەرەنگا زمانان (عەرەبی، کوردی بادینی، کوردی سۆرانی)
+        const translations = {
+            'ku-bad': {
+                dir: 'rtl',
+                menuPages: 'پەیجین مە',
+                menuProducts: 'بەرهەمین مە',
+                menuAbout: 'دەباریا مە',
+                menuContact: 'پەیوەندی',
+                aboutTitle: '🌿 دەباریا مە (About Us)',
+                aboutText: 'مە کۆمپانیایا DETOX CENTER DUHOK بۆ بازرگانیا گشتی ل دهۆکێ. ئەم باشترین و ئۆرجینالترین بەرهەمێن تورکی (مارکێن BANDIS & MERI & ALA) بۆ ساخلەمی و جوانیێ پێشکێش بەستەرێن خۆ دکەین ب گەرەنتیەکا تەواو.',
+                productsTitle: '✨ بەرهەمێن مە (Products)',
+                badge1: '🔥 زۆرترین فرۆشراو | كواليتى به‌رز',
+                desc1: `🔥 شۆره‌شا ڤه‌گه‌ڕاندنا ساخله‌می و رێكخستنا له‌شی!\nگه‌ر ته‌ بڤێت بێی ماندووبوون و ب شێوازه‌كێ سروشتی كێشا خۆ كێم بکه‌ی و ژ ژه‌هرێن له‌شی رزگار ببى، Meri Detox Premium هەلبژاردنا ته‌ یا ئێكه‌م و متمانه‌پێكری یه‌! 🌱✨\n\n📦 خاسیه‌ت و مه‌زنیا ڤی به‌رهەمی:\n• هاریكارە بو پاکژکرنا لِشی و ژێبرنا ژه‌هر و مایكرووبێن زیانبەخش.\n• رێژا سووتاندنا چه‌وریێن لِشی ب شێوه‌یه‌كێ به‌رچاڤ زێده‌ دكه‌ت.\n• هه‌ستا تێربوونێ ددەت و هوشیاریا ته‌ درێژژيان دکه‌ت.`,
+                guar1: '🛡️ ضمان دگەلدایە بۆ هەیفەکی تو فایندەی نەبینی دێ پارێن تە هێنە ڤەگەراندن',
+                std1: '⚡ ستانده‌ر: هەیڤی 7 تا 10 کیلۆیان کێم دکەت',
+                badge2: '☕ بەرهەمێ نوی | قەهوا ئالّا',
+                desc2: `☕ رۆژه‌كا پرچ تام و لێخۆربوون دگەل قەهوا ئالّا!\nگه‌ر ته‌ بڤێت ب شێوازه‌كێ ساخلەم و ب تامه‌كا خۆش کێشا خۆ رێكخه‌ی و پشتەڤانیا چالاکیا له‌شێ خۆ بکەی، Alâ Coffee هەلبژاردنا ته‌ یا نموونه‌یی یه‌.\n\n خاسیەتێن سەرەکی یێن قەهوا ئالّا بۆ رێكخستنا کێشی:\n• هاریکارە بۆ کێمکرنا ئیشتهاتێ و دروستکرنا هەستا تێربوونێ ب درێژاهیا رۆژێ.\n• رێژا سووتاندنا چەوری و چالاککرنا متابۆلیزمێ ل لەشی بلند دکەت.\n• هاریكارە بۆ ژێبرنا ئاڤا زێدە (ئۆدەم) و پاقژکرنا له‌شی ژ ژەهران.\n• تامەکە نایاب دابین دکەت کو هەم کەیفا تە خۆش دکەت و هەم پشکا تە یا رۆژانە یا دیتوکسێ ب جی دئارێت.`,
+                guar2: '🛡️ ضمان دگەلدایە دەما هەیفەکی دا کێشا تە نەهێتە خاری دێ پارێن تە هێنە ڤەگەراندن',
+                std2: '⚡ ستانده‌ر: هەیڤی 5 تا 7 کیلۆیان کێم دکەت',
+                orderTitle: '🛒 داواکرنا بەرهەمی و زێدەکرنا دانان',
+                labelMeri: 'چایێ میری (Meri Detox) - 55,000 د.ع:',
+                labelCoffee: 'قەهوا ئالّا (Alâ Coffee) - 40,000 د.ع:',
+                opt0: '0 (وەرناگریت)',
+                opt1: '1 دانە',
+                totalLabel: 'بهایێ گشتی (المجموع):',
+                labelName: 'ناڤێ تە:',
+                labelCity: 'باژێر / جهـ:',
+                labelPhone: 'ژمارا تەلەفۆنێ:',
+                submitBtn: '💬 ڕاستەوخۆ هنارتن بۆ واتسابی',
+                socialTitle: 'مە لە تۆڕێن کۆمەڵایەتی بپەیڕەوە'
+            },
+            'ku-sor': {
+                dir: 'rtl',
+                menuPages: 'پەیجەکانمان',
+                menuProducts: 'بەرهەمەکانمان',
+                menuAbout: 'دەربارەی ئێمە',
+                menuContact: 'پەیوەندی',
+                aboutTitle: '🌿 دەربارەی ئێمە (About Us)',
+                aboutText: 'کۆمپانیای DETOX CENTER DUHOK بۆ بازرگانی گشتی لە دهۆک. باشترین و ئۆرجینالترین بەرهەمە تورکییەکان (مارکەکانی BANDIS & MERI & ALA) بۆ تەندروستی و جوانی بە دڵنیایی تەواوەوە پێشکەش بە بەڕێزتان دەکەین.',
+                productsTitle: '✨ بەرهەمەکانمان (Products)',
+                badge1: '🔥 پڕفرۆشترین | کوالیتی بەرز',
+                desc1: `🔥 شۆڕشی گەڕاندنەوەی تەندروستی و ڕێکخستنی لەش!\nگەر دەتەوێت بە بێ ماندووبوون و بە شێوازێکی سروشتی کێشت کەم بکەیتەوە و لە ژەهرەکانی لەش ڕزگارت بێت، Meri Detox Premium هەڵبژاردەی یەکەم و متمانەپێکراوتە! 🌱✨\n\n📦 تایبەتمەندییەکانی ئەم بەرهەمە:\n• یارمەتیدەرە بۆ پاککردنەوەی لەش و دەرکردنی ژەهر و میکرۆبە زیانبەخشەکان.\n• ڕێژەی سووتاندنی چەوری لەش بە شێوازێکی بەرچاو زیاد دەکات.\n• هەستی تێربوون دەبەخشێت و وزەت زیاد دەکات.`,
+                guar1: '🛡️ گەرەنتی لەگەڵدایە بۆ ماوەی مانگێک ئەگەر کێشت دابەزە نەکرد پارەکەت دەبڕێتەوە',
+                std1: '⚡ ستاندارد: مانگانە 7 تا 10 کیلۆ کەم دەکاتەوە',
+                badge2: '☕ بەرهەمی نوێ | قاوەی ئالّا',
+                desc2: `☕ ڕۆژێکی پڕ لە تام و چێژ لەگەڵ قاوەی ئالّا!\nگەر دەتەوێت بە شێوازێکی تەندروست و بە تامێکی خۆش کێشت ڕێکخەیت و پشتگیری چالاکی لەشت بکەیت، Alâ Coffee هەڵبژاردەی نموونەییتە.\n\n تایبەتمەندییە سەرەکییەکانی قاوەی ئالّا بۆ ڕێکخستنی کێش:\n• یارمەتیدەرە بۆ کەمکردنەوەی ئیشتیها و دروستکردنی هەستی تێربوون بە درێژایی ڕۆژ.\n• ڕێژەی سووتاندنی چەوری و چالاککردنی مێتابۆلیزم لە لەشدا بەرز دەکاتەوە.\n• یارمەتیدەرە بۆ دەرکردنی ئاوی زیادە (ئۆدەم) و پاککردنەوەی لەش لە ژەهرەکان.\n• تامێکی ناوازە دابین دەکات کە هەم چێژبەخشە و هەم بەشی ڕۆژانەی دیتوکست پڕ دەکاتەوە.`,
+                guar2: '🛡️ گەرەنتی لەگەڵدایە بۆ ماوەی مانگێک ئەگەر کێشت دابەزە نەکرد پارەکەت دەبڕێتەوە',
+                std2: '⚡ ستاندارد: مانگانە 5 تا 7 کیلۆ کەم دەکاتەوە',
+                orderTitle: '🛒 داواکردنی بەرهەم و زیادکردنی دانە',
+                labelMeri: 'چای میری (Meri Detox) - 55,000 د.ع:',
+                labelCoffee: 'قاوەی ئالّا (Alâ Coffee) - 40,000 د.ع:',
+                opt0: '0 (وەرناگریت)',
+                opt1: '1 دانە',
+                totalLabel: 'کۆی گشتی (المجموع):',
+                labelName: 'ناوی تۆ:',
+                labelCity: 'شار / شوێن:',
+                labelPhone: 'ژمارەی تەلەفۆن:',
+                submitBtn: '💬 ڕاستەوخۆ ناردن بۆ واتساب',
+                socialTitle: 'لە تۆڕە کۆمەڵایەتییەکان بەدوایمان بکەوە'
+            },
+            'ar': {
+                dir: 'ltr',
+                menuPages: 'صفحاتنا',
+                menuProducts: 'منتجاتنا',
+                menuAbout: 'من نحن',
+                menuContact: 'اتصل بنا',
+                aboutTitle: '🌿 من نحن (About Us)',
+                aboutText: 'شركة DETOX CENTER DUHOK للتجارة العامة في دهوك. نقدم أفضل المنتجات التركية الأصلية (ماركات BANDIS & MERI & ALA) للصحة والجمال بضمان تام.',
+                productsTitle: '✨ منتجاتنا (Products)',
+                badge1: '🔥 الأكثر طلباً | جودة عالية',
+                desc1: `🔥 ثورة استعادة الصحة وتنظيم الجسم!\nإذا كنت ترغب في إنقاص وزنك بطريقة طبيعية وبدون تعب والتخلص من سموم الجسم، فإن Meri Detox Premium هو خيارك الأول والموثوق! 🌱✨\n\n📦 مميزات هذا المنتج:\n• يساعد على تنظيف الجسم وإزالة السموم والميكروبات الضارة.\n• يزيْد من معدل حرق الدهون في الجسم بشكل ملحوظ.\n• يمنح شعوراً بالشبع ويطيل النشاط الحيوي.`,
+                guar1: '🛡️ مرفق بضمان لمدة شهر واحد، إذا لم ينزل وزنك يتم إرجاع أموالك',
+                std1: '⚡ المعيار: ينقص من 7 إلى 10 كيلو شهرياً',
+                badge2: '☕ منتج جديد | قهوة ألا',
+                desc2: `☕ يوم مليء بالنكهة والمتعة مع قهوة ألا!\nإذا كنت تريد تنظيم وزنك بطريقة صحية وذات طعم طيب ودعم نشاط جسمك، فإن Alâ Coffee هو خيارك الأمثل.\n\n المميزات الرئيسية لقهوة ألا لتنظيم الوزن:\n• تساعد في تقليل الشهية وخلق شعور بالشبع طوال اليوم.\n• ترفع معدل حرق الدهون وتنشيط الأيض في الجسم.\n• تساعد في إزالة السوائل الزائدة (الوذمة) وتنظيف الجسم من السموم.\n• توفر طعماً رائعاً يرضيك ويلبي حصتك اليومية من الديتوكس.`,
+                guar2: '🛡️ مرفق بضمان لمدة شهر إذا لم ينزل وزنك يتم إرجاع أموالك',
+                std2: '⚡ المعيار: ينقص من 5 إلى 7 كيلو شهرياً',
+                orderTitle: '🛒 طلب المنتج وزيادة الكمية',
+                labelMeri: 'شاي ميري (Meri Detox) - 55,000 د.ع:',
+                labelCoffee: 'قهوة ألا (Alâ Coffee) - 40,000 د.ع:',
+                opt0: '0 (لا تأخذ)',
+                opt1: '1 قطعة',
+                totalLabel: 'المجموع الكلي:',
+                labelName: 'اسمك:',
+                labelCity: 'المدينة / المنطقة:',
+                labelPhone: 'رقم الهاتف:',
+                submitBtn: '💬 إرسال مباشر إلى الواتساب',
+                socialTitle: 'تابعنا على مواقع التواصل الاجتماعي'
+            }
+        };
+
+        function changeLanguage(lang) {
+            let t = translations[lang];
+            if (!t) return;
+
+            document.getElementById('htmlTag').setAttribute('dir', t.dir);
+            document.getElementById('menuPages').innerText = t.menuPages;
+            document.getElementById('menuProducts').innerText = t.menuProducts;
+            document.getElementById('menuAbout').innerText = t.menuAbout;
+            document.getElementById('menuContact').innerText = t.menuContact;
+            document.getElementById('aboutTitle').innerText = t.aboutTitle;
+            document.getElementById('aboutText').innerText = t.aboutText;
+            document.getElementById('productsTitle').innerText = t.productsTitle;
+            document.getElementById('badge1').innerText = t.badge1;
+            document.getElementById('desc1').innerText = t.desc1;
+            document.getElementById('guar1').innerText = t.guar1;
+            document.getElementById('std1').innerText = t.std1;
+            document.getElementById('badge2').innerText = t.badge2;
+            document.getElementById('desc2').innerText = t.desc2;
+            document.getElementById('guar2').innerText = t.guar2;
+            document.getElementById('std2').innerText = t.std2;
+            document.getElementById('orderTitle').innerText = t.orderTitle;
+            document.getElementById('labelMeri').innerText = t.labelMeri;
+            document.getElementById('labelCoffee').innerText = t.labelCoffee;
+            document.getElementById('optMeri0').innerText = t.opt0;
+            document.getElementById('optMeri1').innerText = t.opt1;
+            document.getElementById('optCoffee0').innerText = t.opt0;
+            document.getElementById('totalLabel').innerText = t.totalLabel;
+            document.getElementById('labelName').innerText = t.labelName;
+            document.getElementById('labelCity').innerText = t.labelCity;
+            document.getElementById('labelPhone').innerText = t.labelPhone;
+            document.getElementById('submitBtn').innerText = t.submitBtn;
+            document.getElementById('socialTitle').innerText = t.socialTitle;
+        }
+
         function sendToWhatsApp(event) {
             event.preventDefault();
             let qtyMeri = document.getElementById('qtyMeri').value;
@@ -613,7 +769,6 @@
             window.open(url, '_blank');
         }
 
-        // ڤەکردنەکا سەرەتایی بئێخە کار
         calculateTotal();
     </script>
 </body>
