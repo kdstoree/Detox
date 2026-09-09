@@ -321,6 +321,28 @@
         .snapchat-btn { background-color: #FFFC00; color: #000; flex: 1; max-width: 220px; }
         .telegram-btn { background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); flex: 1; max-width: 220px; }
 
+        /* دیزاینا ئالایێ کوردستانێ (ب شێوازەکێ پاک و بێ کێشە) */
+        .kurdistan-flag {
+            width: 28px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.2);
+            flex-shrink: 0;
+        }
+        .k-red { background-color: #da251d; height: 33.33%; width: 100%; }
+        .k-white { background-color: #ffffff; height: 33.33%; width: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+        .k-green { background-color: #007a3d; height: 33.33%; width: 100%; }
+        .k-sun {
+            font-size: 10px;
+            line-height: 1;
+            color: #ffcc00;
+            text-shadow: 0 0 1px #000;
+        }
+
         /* دوگمەیا بازنەیی یا سەرەکی بۆ زمانان */
         .lang-float-container {
             position: fixed;
@@ -340,16 +362,10 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.6);
             transition: transform 0.3s, background 0.3s;
-            overflow: hidden;
         }
         .lang-main-btn:hover {
             transform: scale(1.1);
             background-color: #2a2200;
-        }
-        .lang-main-btn img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         
         .lang-dropdown-content {
@@ -362,7 +378,7 @@
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.7);
             overflow: hidden;
-            min-width: 160px;
+            min-width: 170px;
             text-align: right;
         }
         .lang-dropdown-content.show {
@@ -387,9 +403,9 @@
             color: #ffd700;
         }
         .lang-option img {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
+            width: 26px;
+            height: 18px;
+            border-radius: 2px;
             object-fit: cover;
         }
 
@@ -429,22 +445,26 @@
 <body>
 
     <div class="lang-float-container">
-        <!-- لێرە وێنەی ئالایێ کوردستانێ وەک وێنە هاتییە دانان -->
         <div class="lang-main-btn" onclick="toggleLangMenu()" id="currentLangBtn" title="گۆهڕینا زمان">
-            <img src="https://i.imgur.com/83p0w1Q.png" alt="Kurdistan Flag" id="currentFlagImg">
+            <!-- ئالایێ کوردستانێ یێ ڕەسەن ل سەر دوگمەیێ -->
+            <div class="kurdistan-flag">
+                <div class="k-red"></div>
+                <div class="k-white"><span class="k-sun">☀</span></div>
+                <div class="k-green"></div>
+            </div>
         </div>
         
         <div class="lang-dropdown-content" id="langDropdown">
-            <div class="lang-option" onclick="changeLanguage('ku-bad', 'https://i.imgur.com/83p0w1Q.png')">
-                <img src="https://i.imgur.com/83p0w1Q.png" alt="Kurdistan"> كوردی (بادینی)
+            <div class="lang-option" onclick="changeLanguage('ku-bad', this)">
+                <div class="kurdistan-flag"><div class="k-red"></div><div class="k-white"><span class="k-sun">☀</span></div><div class="k-green"></div></div> كوردی (بادینی)
             </div>
-            <div class="lang-option" onclick="changeLanguage('ku-sor', 'https://i.imgur.com/83p0w1Q.png')">
-                <img src="https://i.imgur.com/83p0w1Q.png" alt="Kurdistan"> کوردی (سۆرانی)
+            <div class="lang-option" onclick="changeLanguage('ku-sor', this)">
+                <div class="kurdistan-flag"><div class="k-red"></div><div class="k-white"><span class="k-sun">☀</span></div><div class="k-green"></div></div> کوردی (سۆرانی)
             </div>
-            <div class="lang-option" onclick="changeLanguage('en', 'https://flagcdn.com/w80/gb.png')">
+            <div class="lang-option" onclick="changeLanguage('en', this)">
                 <img src="https://flagcdn.com/w80/gb.png" alt="UK"> English
             </div>
-            <div class="lang-option" onclick="changeLanguage('ar', 'https://flagcdn.com/w80/iq.png')">
+            <div class="lang-option" onclick="changeLanguage('ar', this)">
                 <img src="https://flagcdn.com/w80/iq.png" alt="Iraq"> عَرَبِيّة
             </div>
         </div>
@@ -802,7 +822,7 @@
             }
         };
 
-        function changeLanguage(lang, flagUrl) {
+        function changeLanguage(lang, element) {
             let t = translations[lang];
             if (!t) return;
 
@@ -835,8 +855,9 @@
             document.getElementById('submitBtn').innerText = t.submitBtn;
             document.getElementById('socialTitle').innerText = t.socialTitle;
 
-            // گۆهڕینا وێنەی ئالایێ سەر دوگمەیا سەرەکی
-            document.getElementById('currentFlagImg').src = flagUrl;
+            // وەرگرتنا ئالایێ هەلبژارتی و دانانا ل سەر دوگمەیا سەرەکی
+            let selectedFlagHtml = element.querySelector('.kurdistan-flag, img').outerHTML;
+            document.getElementById('currentLangBtn').innerHTML = selectedFlagHtml;
 
             document.getElementById('langDropdown').classList.remove('show');
         }
