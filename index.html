@@ -245,15 +245,15 @@
             margin: 15px 0;
             text-align: center;
         }
-        .total-box span {
-            font-size: 14px;
+        .total-box div {
+            font-size: 13px;
             color: #d1d5db;
+            margin-bottom: 4px;
         }
         .total-price-val {
             font-size: 20px;
             color: #ffd700;
             font-weight: bold;
-            margin-right: 5px;
         }
 
         .order-btn {
@@ -324,7 +324,6 @@
         .snapchat-btn { background-color: #FFFC00; color: #000; flex: 1; max-width: 220px; }
         .telegram-btn { background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); flex: 1; max-width: 220px; }
 
-        /* دوگمەیا بازنەیی یا سەرەکی بۆ زمانان */
         .lang-float-container {
             position: fixed;
             top: 20px;
@@ -579,8 +578,10 @@
                 </div>
 
                 <div class="total-box">
-                    <span id="totalLabel">بهایێ گشتی (المجموع):</span>
-                    <span class="total-price-val" id="totalPriceDisplay">55,000 د.ع</span>
+                    <div id="subtotalText">بهایێ بەرهەما: 55,000 د.ع</div>
+                    <div id="shippingText">بهایێ گەهاندنێ: 3,000 د.ع (بۆ 24 دەمژمێرا)</div>
+                    <span style="font-size: 14px; color: #d1d5db;" id="totalLabel">بهایێ گشتی (المجموع):</span>
+                    <span class="total-price-val" id="totalPriceDisplay">58,000 د.ع</span>
                 </div>
 
                 <div class="form-group">
@@ -590,27 +591,31 @@
 
                 <div class="form-group">
                     <label for="customerCity" id="labelCity">باژێر:</label>
-                    <select id="customerCity" class="form-control" required>
+                    <select id="customerCity" class="form-control" onchange="calculateTotal()" required>
                         <option value="" disabled selected>باژێرێ خۆ هەڵبژێرە</option>
-                        <option value="دهۆک">دهۆک (Duhok)</option>
-                        <option value="هەولێر">هەولێر (Erbil)</option>
-                        <option value="سلێمانی">سلێمانی (Sulaymaniyah)</option>
-                        <option value="هەڵەبجە">هەڵەبجە (Halabja)</option>
-                        <option value="زاخۆ">زاخۆ (Zakho)</option>
-                        <option value="کەرکووک">کەرکووک (Kirkuk)</option>
-                        <option value="موسڵ">موسڵ / نەینەوا (Mosul)</option>
-                        <option value="بەغدا">بەغدا (Baghdad)</option>
-                        <option value="باسڕە">باسڕە (Basra)</option>
-                        <option value="ئەنبار">ئەنبار (Anbar)</option>
-                        <option value="نەجەف">نەجەف (Najaf)</option>
-                        <option value="کەربەلا">کەربەلا (Karbala)</option>
-                        <option value="بابل">بابل (Babylon)</option>
-                        <option value="دیالە">دیالە (Diyala)</option>
-                        <option value="واست">واست (Wasit)</option>
-                        <option value="میسان">میسان (Maysan)</option>
-                        <option value="زیقار">زیقار / ناسریە (Dhi Qar)</option>
-                        <option value="موسەنا">موسەنا (Muthanna)</option>
-                        <option value="سەلاحەدین">سەلاحەدین (Salah al-Din)</option>
+                        <option value="دهۆک">دەهۆک (Duhok) - گەهاندن 3,000 (24 دەمژمێر)</option>
+                        <option value="زاخۆ">زاخۆ (Zakho) - گەهاندن 3,000 (24 دەمژمێر)</option>
+                        <option value="سێمێل">سێمێل (Semel) - گەهاندن 3,000 (24 دەمژمێر)</option>
+                        <option value="خانکێ">خانکێ (Khanke) - گەهاندن 3,000 (24 دەمژمێر)</option>
+                        <option value="شارییا">شارییا (Shariya) - گەهاندن 3,000 (24 دەمژمێر)</option>
+                        <option value="هەولێر">هەولێر (Erbil) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="سلێمانی">سلێمانی (Sulaymaniyah) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="هەڵەبجە">هەڵەبجە (Halabja) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="شەنگال">شەنگال (Sinjar) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="کەرکووک">کەرکووک (Kirkuk) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="موسڵ">موسڵ / نەینەوا (Mosul) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="بەغدا">بەغدا (Baghdad) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="باسڕە">باسڕە (Basra) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="ئەنبار">ئەنبار (Anbar) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="نەجەف">نەجەف (Najaf) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="کەربەلا">کەربەلا (Karbala) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="بابل">بابل (Babylon) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="دیالە">دیالە (Diyala) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="واست">واست (Wasit) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="میسان">میسان (Maysan) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="زیقار">زیقار / ناسریە (Dhi Qar) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="موسەنا">موسەنا (Muthanna) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="سەلاحەدین">سەلاحەدین (Salah al-Din) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
                     </select>
                 </div>
 
@@ -702,8 +707,24 @@
             let priceMeri = 55000;
             let priceCoffee = 40000;
             
-            let total = (qtyMeri * priceMeri) + (qtyCoffee * priceCoffee);
+            let subtotal = (qtyMeri * priceMeri) + (qtyCoffee * priceCoffee);
             
+            let selectedCity = document.getElementById('customerCity').value;
+            let shippingCost = 3000;
+            let shippingTimeText = "(گەهاندن 24 دەمژمێر)";
+
+            // باژێرێن گەهاندنا وان 5 هزارە (هەولێر، سلێمانی، هەڵەبجە، شەنگال، کەرکووک و باژێرێن عێراقێ)
+            const cities5k = ["هەولێر", "سلێمانی", "هەڵەبجە", "شەنگال", "کەرکووک", "موسڵ", "بەغدا", "باسڕە", "ئەنبار", "نەجەف", "کەربەلا", "بابل", "دیالە", "واست", "میسان", "زیقار", "موسەنا", "سەلاحەدین"];
+            
+            if (cities5k.includes(selectedCity)) {
+                shippingCost = 5000;
+                shippingTimeText = "(گەهاندن 3 بۆ 4 ڕۆژ)";
+            }
+
+            let total = subtotal + (subtotal > 0 ? shippingCost : 0);
+            
+            document.getElementById('subtotalText').innerText = `بهایێ بەرهەما: ${subtotal.toLocaleString()} د.ع`;
+            document.getElementById('shippingText').innerText = `بهایێ گەهاندنێ: ${shippingCost.toLocaleString()} د.ع ${subtotal > 0 ? shippingTimeText : ''}`;
             document.getElementById('totalPriceDisplay').innerText = total.toLocaleString() + ' د.ع';
         }
 
@@ -901,7 +922,14 @@
             
             let meriPrice = qtyMeri * 55000;
             let coffeePrice = qtyCoffee * 40000;
-            let total = meriPrice + coffeePrice;
+            let subtotal = meriPrice + coffeePrice;
+
+            let shippingCost = 3000;
+            const cities5k = ["هەولێر", "سلێمانی", "هەڵەبجە", "شەنگال", "کەرکووک", "موسڵ", "بەغدا", "باسڕە", "ئەنبار", "نەجەف", "کەربەلا", "بابل", "دیالە", "واست", "میسان", "زیقار", "موسەنا", "سەلاحەدین"];
+            if (cities5k.includes(city)) {
+                shippingCost = 5000;
+            }
+            let total = subtotal + shippingCost;
 
             let orderDetails = '';
             if (qtyMeri > 0) orderDetails += `• Meri Detox: ${qtyMeri} دانە (${meriPrice.toLocaleString()} د.ع)%0A`;
@@ -909,7 +937,8 @@
             
             let message = `🛒 *داخوازییا نوی ل DETOX CENTER DUHOK*%0A%0A` +
                           `${orderDetails}` +
-                          `💰 *بهایێ گشتی:* ${total.toLocaleString()} د.ع%0A%0A` +
+                          `📦 *بهایێ گەهاندنێ:* ${shippingCost.toLocaleString()} د.ع%0A` +
+                          `💰 *بهایێ گشتی (دگەل گەهاندنێ):* ${total.toLocaleString()} د.ع%0A%0A` +
                           `👤 *ناڤ:* ${name}%0A` +
                           `🏙️ *باژێر:* ${city}%0A` +
                           `📍 *ناڤونیشان:* ${address}%0A` +
