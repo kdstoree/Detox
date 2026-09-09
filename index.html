@@ -432,15 +432,15 @@
 
     <div class="lang-float-container">
         <div class="lang-main-btn" onclick="toggleLangMenu()" id="currentLangBtn" title="گۆهڕینا زمان">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Flag_of_Kurdistan.svg" alt="Kurdistan Flag" id="currentFlagImg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg" alt="Kurdistan Flag" id="currentFlagImg">
         </div>
         
         <div class="lang-dropdown-content" id="langDropdown">
-            <div class="lang-option" onclick="changeLanguage('ku-bad', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png" alt="Kurdistan"> كوردی (بادینی)
+            <div class="lang-option" onclick="changeLanguage('ku-bad', 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg" alt="Kurdistan"> كوردی (بادینی)
             </div>
-            <div class="lang-option" onclick="changeLanguage('ku-sor', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png" alt="Kurdistan"> کوردی (سۆرانی)
+            <div class="lang-option" onclick="changeLanguage('ku-sor', 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg" alt="Kurdistan"> کوردی (سۆرانی)
             </div>
             <div class="lang-option" onclick="changeLanguage('en', 'https://flagcdn.com/w80/gb.png')">
                 <img src="https://flagcdn.com/w80/gb.png" alt="UK"> English
@@ -579,7 +579,7 @@
 
                 <div class="total-box">
                     <div id="subtotalText">بهایێ بەرهەما: 55,000 د.ع</div>
-                    <div id="shippingText">بهایێ گەهاندنێ: 3,000 د.ع (بۆ 24 دەمژمێرا)</div>
+                    <div id="shippingText">بهایێ گەهاندنێ: 3,000 د.ع (گەهاندن 24 دەمژمێر)</div>
                     <span style="font-size: 14px; color: #d1d5db;" id="totalLabel">بهایێ گشتی (المجموع):</span>
                     <span class="total-price-val" id="totalPriceDisplay">58,000 د.ع</span>
                 </div>
@@ -713,7 +713,6 @@
             let shippingCost = 3000;
             let shippingTimeText = "(گەهاندن 24 دەمژمێر)";
 
-            // باژێرێن گەهاندنا وان 5 هزارە (هەولێر، سلێمانی، هەڵەبجە، شەنگال، کەرکووک و باژێرێن عێراقێ)
             const cities5k = ["هەولێر", "سلێمانی", "هەڵەبجە", "شەنگال", "کەرکووک", "موسڵ", "بەغدا", "باسڕە", "ئەنبار", "نەجەف", "کەربەلا", "بابل", "دیالە", "واست", "میسان", "زیقار", "موسەنا", "سەلاحەدین"];
             
             if (cities5k.includes(selectedCity)) {
