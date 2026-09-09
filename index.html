@@ -433,7 +433,7 @@
 
     <div class="lang-float-container">
         <div class="lang-main-btn" onclick="toggleLangMenu()" id="currentLangBtn" title="گۆهڕینا زمان">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Flag_of_ Kurdistan.svg" alt="Kurdistan Flag" id="currentFlagImg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Flag_of_Kurdistan.svg" alt="Kurdistan Flag" id="currentFlagImg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_Kurdistan.svg/320px-Flag_of_Kurdistan.svg.png'">
         </div>
         
         <div class="lang-dropdown-content" id="langDropdown">
@@ -552,6 +552,12 @@
                         <option value="2">2 دانە</option>
                         <option value="3">3 دانە</option>
                         <option value="4">4 دانە</option>
+                        <option value="5">5 دانە</option>
+                        <option value="6">6 دانە</option>
+                        <option value="7">7 دانە</option>
+                        <option value="8">8 دانە</option>
+                        <option value="9">9 دانە</option>
+                        <option value="10">10 دانە</option>
                     </select>
                 </div>
 
@@ -563,6 +569,12 @@
                         <option value="2">2 دانە</option>
                         <option value="3">3 دانە</option>
                         <option value="4">4 دانە</option>
+                        <option value="5">5 دانە</option>
+                        <option value="6">6 دانە</option>
+                        <option value="7">7 دانە</option>
+                        <option value="8">8 دانە</option>
+                        <option value="9">9 دانە</option>
+                        <option value="10">10 دانە</option>
                     </select>
                 </div>
 
@@ -577,8 +589,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="customerCity" id="labelCity">باژێر / جهـ:</label>
-                    <input type="text" id="customerCity" class="form-control" placeholder="بۆ نموونە: دهۆک" required>
+                    <label for="customerCity" id="labelCity">باژێر:</label>
+                    <select id="customerCity" class="form-control" required>
+                        <option value="" disabled selected>باژێرێ خۆ هەڵبژێرە</option>
+                        <option value="دهۆک">دهۆک (Duhok)</option>
+                        <option value="هەولێر">هەولێر (Erbil)</option>
+                        <option value="سلێمانی">سلێمانی (Sulaymaniyah)</option>
+                        <option value="هەڵەبجە">هەڵەبجە (Halabja)</option>
+                        <option value="زاخۆ">زاخۆ (Zakho)</option>
+                        <option value="کەرکووک">کەرکووک (Kirkuk)</option>
+                        <option value="موسڵ">موسڵ / نەینەوا (Mosul)</option>
+                        <option value="بەغدا">بەغدا (Baghdad)</option>
+                        <option value="باسڕە">باسڕە (Basra)</option>
+                        <option value="ئەنبار">ئەنبار (Anbar)</option>
+                        <option value="نەجەف">نەجەف (Najaf)</option>
+                        <option value="کەربەلا">کەربەلا (Karbala)</option>
+                        <option value="بابل">بابل (Babylon)</option>
+                        <option value="دیالە">دیالە (Diyala)</option>
+                        <option value="واست">واست (Wasit)</option>
+                        <option value="میسان">میسان (Maysan)</option>
+                        <option value="زیقار">زیقار / ناسریە (Dhi Qar)</option>
+                        <option value="موسەنا">موسەنا (Muthanna)</option>
+                        <option value="سەلاحەدین">سەلاحەدین (Salah al-Din)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerAddress" id="labelAddress">ناڤونیشان (تاخ / جادە / نزیک کیڤە):</label>
+                    <input type="text" id="customerAddress" class="form-control" placeholder="بۆ نموونە: شۆڕش، جادا 40، نزیک مارکێتا..." required>
                 </div>
 
                 <div class="form-group">
@@ -710,7 +748,8 @@
                 opt1: '1 دانە',
                 totalLabel: 'بهایێ گشتی (المجموع):',
                 labelName: 'ناڤێ تە:',
-                labelCity: 'باژێر / جهـ:',
+                labelCity: 'باژێر:',
+                labelAddress: 'ناڤونیشان (تاخ / جادە / نزیک کیڤە):',
                 labelPhone: 'ژمارا تەلەفۆنێ:',
                 submitBtn: '💬 ڕاستەوخۆ هنارتن بۆ واتسابی',
                 socialTitle: 'مە لە تۆڕێن کۆمەڵایەتی بپەیڕەوە'
@@ -739,7 +778,8 @@
                 opt1: '1 دانە',
                 totalLabel: 'کۆی گشتی (المجموع):',
                 labelName: 'ناوی تۆ:',
-                labelCity: 'شار / شوێن:',
+                labelCity: 'شار:',
+                labelAddress: 'ناوونیشان (گەڕەک / شەقام / نزیک چی):',
                 labelPhone: 'ژمارەی تەلەفۆن:',
                 submitBtn: '💬 ڕاستەوخۆ ناردن بۆ واتساب',
                 socialTitle: 'لە تۆڕە کۆمەڵایەتییەکان بەدوایمان بکەوە'
@@ -768,7 +808,8 @@
                 opt1: '1 piece',
                 totalLabel: 'Total Price:',
                 labelName: 'Your Name:',
-                labelCity: 'City / Location:',
+                labelCity: 'City:',
+                labelAddress: 'Address (Neighborhood / Street / Near):',
                 labelPhone: 'Phone Number:',
                 submitBtn: '💬 Send directly to WhatsApp',
                 socialTitle: 'Follow us on social media'
@@ -797,7 +838,8 @@
                 opt1: '1 قطعة',
                 totalLabel: 'المجموع الكلي:',
                 labelName: 'اسمك:',
-                labelCity: 'المدينة / المنطقة:',
+                labelCity: 'المدينة:',
+                labelAddress: 'العنوان (المنطقة / الشارع / بالقرب من):',
                 labelPhone: 'رقم الهاتف:',
                 submitBtn: '💬 إرسال مباشر إلى الواتساب',
                 socialTitle: 'تابعنا على مواقع التواصل الاجتماعي'
@@ -833,6 +875,7 @@
             document.getElementById('totalLabel').innerText = t.totalLabel;
             document.getElementById('labelName').innerText = t.labelName;
             document.getElementById('labelCity').innerText = t.labelCity;
+            document.getElementById('labelAddress').innerText = t.labelAddress;
             document.getElementById('labelPhone').innerText = t.labelPhone;
             document.getElementById('submitBtn').innerText = t.submitBtn;
             document.getElementById('socialTitle').innerText = t.socialTitle;
@@ -853,6 +896,7 @@
 
             let name = document.getElementById('customerName').value;
             let city = document.getElementById('customerCity').value;
+            let address = document.getElementById('customerAddress').value;
             let phone = document.getElementById('customerPhone').value;
             
             let meriPrice = qtyMeri * 55000;
@@ -867,7 +911,8 @@
                           `${orderDetails}` +
                           `💰 *بهایێ گشتی:* ${total.toLocaleString()} د.ع%0A%0A` +
                           `👤 *ناڤ:* ${name}%0A` +
-                          `📍 *باژێر:* ${city}%0A` +
+                          `🏙️ *باژێر:* ${city}%0A` +
+                          `📍 *ناڤونیشان:* ${address}%0A` +
                           `📞 *تەلەفۆن:* ${phone}`;
             
             let url = `https://wa.me/9647508913667?text=${message}`;
