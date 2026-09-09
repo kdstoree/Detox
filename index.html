@@ -118,6 +118,8 @@
             object-fit: contain;
             background-color: #050505;
             display: none;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
         .media-container img.active, .media-container video.active {
             display: block;
@@ -161,6 +163,36 @@
             z-index: 10;
         }
 
+        /* Lightbox Modal بۆ مەزنکرنا وێنەیان */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid #ffd700;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffd700;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .product-body {
             padding: 18px;
         }
@@ -198,6 +230,67 @@
             color: #fbbf24;
             margin-bottom: 8px;
             font-weight: bold;
+        }
+
+        /* متمانە و باوەڕی (Trust Badges) */
+        .trust-badges {
+            display: flex;
+            justify-content: space-around;
+            background: #111111;
+            border: 1px solid #332900;
+            border-radius: 12px;
+            padding: 12px 8px;
+            margin-bottom: 20px;
+            gap: 5px;
+        }
+        .trust-item {
+            font-size: 11px;
+            color: #d1d5db;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            text-align: center;
+        }
+        .trust-item span {
+            font-size: 16px;
+        }
+
+        /* ڕاوبۆچوونێن کڕیاران (Testimonials) */
+        .reviews-section {
+            background: #111111;
+            border: 1px solid #332900;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .reviews-section h4 {
+            color: #ffd700;
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+            padding-bottom: 5px;
+        }
+        .review-card {
+            background: #181818;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #d1d5db;
+            border-right: 3px solid #ffd700;
+        }
+        .review-card .author {
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 3px;
+            font-size: 11px;
+        }
+        .stars {
+            color: #fbbf24;
+            font-size: 11px;
         }
 
         .order-section {
@@ -395,6 +488,13 @@
             object-fit: cover;
         }
 
+        /* ترپەدانا دوگمەیا واتسابی بۆ سەرنجڕاکێشکرنێ */
+        @keyframes pulseWhatsapp {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -409,11 +509,11 @@
             justify-content: center;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
             z-index: 1000;
-            transition: transform 0.3s ease;
             text-decoration: none;
+            animation: pulseWhatsapp 2s infinite;
         }
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         .whatsapp-float svg {
             width: 30px;
@@ -429,6 +529,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="Zoomed Image">
+    </div>
 
     <div class="lang-float-container">
         <div class="lang-main-btn" onclick="toggleLangMenu()" id="currentLangBtn" title="گۆهڕینا زمان">
@@ -475,11 +581,11 @@
         <!-- 1. بەرهەمێ یەکێ: Meri Detox Premium -->
         <div class="product-card">
             <div class="media-container" id="mediaSlider1">
-                <img src="meri1 .JPG" class="active slide-item-1" alt="Meri Detox 1">
-                <img src="meri2.JPG" class="slide-item-1" alt="Meri Detox 2">
-                <img src="meri3.JPG" class="slide-item-1" alt="Meri Detox 3">
-                <img src="meri4.JPG" class="slide-item-1" alt="Meri Detox 4">
-                <img src="meri5.JPG" class="slide-item-1" alt="Meri Detox 5">
+                <img src="meri1 .JPG" class="active slide-item-1" alt="Meri Detox 1" onclick="openLightbox(this.src)">
+                <img src="meri2.JPG" class="slide-item-1" alt="Meri Detox 2" onclick="openLightbox(this.src)">
+                <img src="meri3.JPG" class="slide-item-1" alt="Meri Detox 3" onclick="openLightbox(this.src)">
+                <img src="meri4.JPG" class="slide-item-1" alt="Meri Detox 4" onclick="openLightbox(this.src)">
+                <img src="meri5.JPG" class="slide-item-1" alt="Meri Detox 5" onclick="openLightbox(this.src)">
                 <video src="meri_video1.mp4" class="slide-item-1" controls></video>
 
                 <button class="slider-btn prev-btn" onclick="changeSlide(1, -1)">❮</button>
@@ -508,11 +614,11 @@
         <!-- 2. بەرهەمێ دووێ: Alâ Coffee -->
         <div class="product-card">
             <div class="media-container" id="mediaSlider2">
-                <img src="coffee1.JPG" class="active slide-item-2" alt="Alâ Coffee 1">
-                <img src="coffee2.JPG" class="slide-item-2" alt="Alâ Coffee 2">
-                <img src="coffee3.JPG" class="slide-item-2" alt="Alâ Coffee 3">
-                <img src="coffee4.JPG" class="slide-item-2" alt="Alâ Coffee 4">
-                <img src="coffee5.JPG" class="slide-item-2" alt="Alâ Coffee 5">
+                <img src="coffee1.JPG" class="active slide-item-2" alt="Alâ Coffee 1" onclick="openLightbox(this.src)">
+                <img src="coffee2.JPG" class="slide-item-2" alt="Alâ Coffee 2" onclick="openLightbox(this.src)">
+                <img src="coffee3.JPG" class="slide-item-2" alt="Alâ Coffee 3" onclick="openLightbox(this.src)">
+                <img src="coffee4.JPG" class="slide-item-2" alt="Alâ Coffee 4" onclick="openLightbox(this.src)">
+                <img src="coffee5.JPG" class="slide-item-2" alt="Alâ Coffee 5" onclick="openLightbox(this.src)">
 
                 <button class="slider-btn prev-btn" onclick="changeSlide(2, -1)">❮</button>
                 <button class="slider-btn next-btn" onclick="changeSlide(2, 1)">❯</button>
@@ -541,6 +647,29 @@
         <!-- فۆڕما داواکرنێ -->
         <div class="order-section" id="contactSec">
             <h3 id="orderTitle">🛒 داواکرنا بەرهەمی و زێدەکرنا دانان</h3>
+
+            <!-- هێماکێن متمانەیێ (Trust Badges) -->
+            <div class="trust-badges">
+                <div class="trust-item"><span>💯</span>بەرهەمێ 100% ڕەسەن</div>
+                <div class="trust-item"><span>🚀</span>گەهاندنا ب لەز</div>
+                <div class="trust-item"><span>🔒</span>پاراستنا زانیاریان</div>
+            </div>
+
+            <!-- ڕاوبۆچوونێن کڕیاران (Testimonials) -->
+            <div class="reviews-section">
+                <h4 id="reviewTitle">⭐ راوبۆچوونێن کڕیارێن مە</h4>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    "راستی چایێ میری گەلەک هاریکاریا من کر، بێی ماندووبوون 8 کیلۆ کێم کر!"
+                    <div class="author">- س. ع. (دهۆک)</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    "گەهاندن گەلەک ب لەز بوو و قەهوا ئالّا تامەکا نایاب هەیە. دەستخۆش."
+                    <div class="author">- ن. م. (هەولێر)</div>
+                </div>
+            </div>
+
             <form id="orderForm" onsubmit="sendToWhatsApp(event)">
                 
                 <div class="form-group">
@@ -660,7 +789,7 @@
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.016 2.002c-3.155 0-5.323 2.126-5.323 5.176 0 1.258.468 2.378 1.341 3.238-.346.425-.662.966-.92 1.636-.26.68-.457 1.545-.588 2.571-.059.467-.089.878-.093 1.228-.01.895.275 1.583.847 2.046.541.439 1.32.656 2.316.656.326 0 .708-.023 1.14-.07.251-.027.502-.07.753-.13.334.331.725.641 1.173.926.541.343 1.137.514 1.78.514.644 0 1.24-.171 1.781-.514.448-.285.839-.595 1.173-.926.251.06.502.103.753.13.432.047.814.07 1.14.07.996 0 1.775-.217 2.316-.656.572-.463.857-1.151.847-2.046-.004-.35-.034-.761-.093-1.228-.131-1.026-.328-1.891-.588-2.571-.258-.67-.574-1.211-.92-1.636.873-.86 1.341-1.98 1.341-3.238 0-3.05-2.168-5.176-5.323-5.176-.326 0-.671.026-1.033.076-.231.032-.468.077-.71.135-.382-.448-.828-.853-1.334-1.205-.596-.412-1.265-.621-1.996-.621-.731 0-1.4.209-1.996.621-.506.352-.952.757-1.334 1.205-.242-.058-.479-.103-.71-.135-.362-.05-.707-.076-1.033-.076z"/></svg>
                     </a>
                     
-                    <a href="https://t.me/" class="social-btn telegram-btn" target="_blank">
+                    <a href="https://t.me/detox_center_duhok" class="social-btn telegram-btn" target="_blank">
                         <span>Telegram</span>
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.228-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.012-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.095.025.31.011.478z"/></svg>
                     </a>
@@ -698,6 +827,16 @@
 
         function changeSlide(productNum, direction) {
             showSlide(productNum, currentIndexes[productNum] + direction);
+        }
+
+        /* Lightbox Functions */
+        function openLightbox(imgSrc) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxModal').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
         }
 
         function calculateTotal() {
@@ -762,6 +901,7 @@
                 guar2: '🛡️ ضمان دگەلدایە دەما هەیفەکی دا کێشا تە نەهێتە خاری دێ پارێن تە هێنە ڤەگەراندن',
                 std2: '⚡ ستانده‌ر: هەیڤی 5 تا 7 کیلۆیان کێم دکەت',
                 orderTitle: '🛒 داواکرنا بەرهەمی و زێدەکرنا دانان',
+                reviewTitle: '⭐ راوبۆچوونێن کڕیارێن مە',
                 labelMeri: 'چایێ میری (Meri Detox) - 55,000 د.ع:',
                 labelCoffee: 'قەهوا ئالّا (Alâ Coffee) - 40,000 د.ع:',
                 opt0: '0 (وەرناگریت)',
@@ -792,6 +932,7 @@
                 guar2: '🛡️ گەرەنتی لەگەڵدایە بۆ ماوەی مانگێک ئەگەر کێشت دابەزە نەکرد پارەکەت دەبڕێتەوە',
                 std2: '⚡ ستاندارد: مانگانە 5 تا 7 کیلۆ کەم دەکاتەوە',
                 orderTitle: '🛒 داواکردنی بەرهەم و زیادکردنی دانە',
+                reviewTitle: '⭐ ڕاو بۆچوونی کڕیارەکانمان',
                 labelMeri: 'چای میری (Meri Detox) - 55,000 د.ع:',
                 labelCoffee: 'قاوەی ئالّا (Alâ Coffee) - 40,000 د.ع:',
                 opt0: '0 (وەرناگریت)',
@@ -822,6 +963,7 @@
                 guar2: '🛡️ Backed by a 1-month guarantee; if you do not lose weight, your money will be refunded',
                 std2: '⚡ Standard: Lose 5 to 7 kg per month',
                 orderTitle: '🛒 Order Product & Add Quantity',
+                reviewTitle: '⭐ Customer Reviews',
                 labelMeri: 'Meri Detox Tea - 55,000 IQD:',
                 labelCoffee: 'Alâ Coffee - 40,000 IQD:',
                 opt0: '0 (Skip)',
@@ -852,6 +994,7 @@
                 guar2: '🛡️ مرفق بضمان لمدة شهر إذا لم ينزل وزنك يتم إرجاع أموالك',
                 std2: '⚡ المعيار: ينقص من 5 إلى 7 كيلو شهرياً',
                 orderTitle: '🛒 طلب المنتج وزيادة الكمية',
+                reviewTitle: '⭐ آراء عملائنا',
                 labelMeri: 'شاي ميري (Meri Detox) - 55,000 د.ع:',
                 labelCoffee: 'قهوة ألا (Alâ Coffee) - 40,000 د.ع:',
                 opt0: '0 (لا تأخذ)',
@@ -887,6 +1030,7 @@
             document.getElementById('guar2').innerText = t.guar2;
             document.getElementById('std2').innerText = t.std2;
             document.getElementById('orderTitle').innerText = t.orderTitle;
+            document.getElementById('reviewTitle').innerText = t.reviewTitle;
             document.getElementById('labelMeri').innerText = t.labelMeri;
             document.getElementById('labelCoffee').innerText = t.labelCoffee;
             document.getElementById('optMeri0').innerText = t.opt0;
