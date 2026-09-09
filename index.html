@@ -93,7 +93,6 @@
             line-height: 1.7;
         }
 
-        /* بەشێ کاردێ بەرهەمی */
         .product-card {
             background-color: #111111;
             border: 1px solid #382c00;
@@ -103,7 +102,6 @@
             text-align: right;
         }
 
-        /* سلایدا وێنە و ڤیدیۆیان */
         .media-container {
             position: relative;
             width: 100%;
@@ -199,7 +197,7 @@
             font-weight: bold;
         }
 
-        /* فۆڕما داواکرنێ */
+        /* فۆڕما داواکرنێ و پشکا زێدەکرنا دانان */
         .order-section {
             background: #141414;
             border: 1px solid #382c00;
@@ -236,6 +234,27 @@
             border-color: #ffd700;
             outline: none;
         }
+        
+        /* باکسا نیشاندانا بهاء‌ی گشتی (Total Price Box) */
+        .total-box {
+            background: #1f1a00;
+            border: 1px solid #ffd700;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .total-box span {
+            font-size: 14px;
+            color: #d1d5db;
+        }
+        .total-price-val {
+            font-size: 20px;
+            color: #ffd700;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
         .order-btn {
             width: 100%;
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -247,13 +266,12 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         .order-btn:hover {
             opacity: 0.9;
         }
 
-        /* تۆڕێن جڤاکی */
         .social-section {
             border-top: 1px solid #262626;
             padding-top: 20px;
@@ -394,7 +412,7 @@
             </div>
         </div>
 
-        <!-- 2. بەرهەمێ دووێ: Alâ Coffee (قەهوا ئالّا) -->
+        <!-- 2. بەرهەمێ دووێ: Alâ Coffee -->
         <div class="product-card">
             <div class="media-container" id="mediaSlider2">
                 <img src="coffee1.JPG" class="active slide-item-2" alt="Alâ Coffee 1">
@@ -427,17 +445,39 @@
             </div>
         </div>
 
-        <!-- فۆڕما داواکرنێ -->
+        <!-- فۆڕما داواکرنێ ب پشکا زێدەکرنا دانان و کومکرنا بهایان -->
         <div class="order-section" id="contactSec">
-            <h3>🛒 داواکرنا بەرهەمی</h3>
+            <h3>🛒 داواکرنا بەرهەمی و زێدەکرنا دانان</h3>
             <form id="orderForm" onsubmit="sendToWhatsApp(event)">
+                
+                <!-- 1. بەشێ چایێ میری -->
                 <div class="form-group">
-                    <label for="productSelect">هەڵبژاردنا بەرهەمی:</label>
-                    <select id="productSelect" class="form-control" required>
-                        <option value="" disabled selected>-- بەرهەمی هەلبژێرە --</option>
-                        <option value="Meri Detox Premium - 55,000 د.ع">Meri Detox Premium - 55,000 د.ع</option>
-                        <option value="Alâ Coffee - 40,000 د.ع">Alâ Coffee (قەهوا ئالّا) - 40,000 د.ع</option>
+                    <label for="qtyMeri">چایێ میری (Meri Detox) - 55,000 د.ع:</label>
+                    <select id="qtyMeri" class="form-control" onchange="calculateTotal()">
+                        <option value="0">0 (وەرناگریت)</option>
+                        <option value="1" selected>1 دانە</option>
+                        <option value="2">2 دانە</option>
+                        <option value="3">3 دانە</option>
+                        <option value="4">4 دانە</option>
                     </select>
+                </div>
+
+                <!-- 2. بەشێ قەهوا ئالّا -->
+                <div class="form-group">
+                    <label for="qtyCoffee">قەهوا ئالّا (Alâ Coffee) - 40,000 د.ع:</label>
+                    <select id="qtyCoffee" class="form-control" onchange="calculateTotal()">
+                        <option value="0" selected>0 (وەرناگریت)</option>
+                        <option value="1">1 دانە</option>
+                        <option value="2">2 دانە</option>
+                        <option value="3">3 دانە</option>
+                        <option value="4">4 دانە</option>
+                    </select>
+                </div>
+
+                <!-- باکسا نیشاندانا بهایێ گشتی خودکار -->
+                <div class="total-box">
+                    <span>بهایێ گشتی (المجموع):</span>
+                    <span class="total-price-val" id="totalPriceDisplay">55,000 د.ع</span>
                 </div>
 
                 <div class="form-group">
@@ -506,7 +546,6 @@
     </a>
 
     <script>
-        // سیستەمێ سلایدا جودا بۆ هەر بەرهەمی
         let currentIndexes = { 1: 0, 2: 0 };
 
         function showSlide(productNum, index) {
@@ -527,15 +566,45 @@
             showSlide(productNum, currentIndexes[productNum] + direction);
         }
 
+        // کاریا هژمارکدنا خودکار یا بهاء‌ی گشتی
+        function calculateTotal() {
+            let qtyMeri = parseInt(document.getElementById('qtyMeri').value) || 0;
+            let qtyCoffee = parseInt(document.getElementById('qtyCoffee').value) || 0;
+            
+            let priceMeri = 55000;
+            let priceCoffee = 40000;
+            
+            let total = (qtyMeri * priceMeri) + (qtyCoffee * priceCoffee);
+            
+            document.getElementById('totalPriceDisplay').innerText = total.toLocaleString() + ' د.ع';
+        }
+
+        // دەما پەیام دچتە واتسابی
         function sendToWhatsApp(event) {
             event.preventDefault();
-            let product = document.getElementById('productSelect').value;
+            let qtyMeri = document.getElementById('qtyMeri').value;
+            let qtyCoffee = document.getElementById('qtyCoffee').value;
+            
+            if (qtyMeri == 0 && qtyCoffee == 0) {
+                alert('هشیاربن! هیچ بەرهەمەک نەهاتییە هەلبژارتن.');
+                return;
+            }
+
             let name = document.getElementById('customerName').value;
             let city = document.getElementById('customerCity').value;
             let phone = document.getElementById('customerPhone').value;
             
+            let meriPrice = qtyMeri * 55000;
+            let coffeePrice = qtyCoffee * 40000;
+            let total = meriPrice + coffeePrice;
+
+            let orderDetails = '';
+            if (qtyMeri > 0) orderDetails += `• Meri Detox: ${qtyMeri} دانە (${meriPrice.toLocaleString()} د.ع)%0A`;
+            if (qtyCoffee > 0) orderDetails += `• Alâ Coffee: ${qtyCoffee} دانە (${coffeePrice.toLocaleString()} د.ع)%0A`;
+            
             let message = `🛒 *داخوازییا نوی ل DETOX CENTER DUHOK*%0A%0A` +
-                          `📦 *بەرهەم:* ${product}%0A` +
+                          `${orderDetails}` +
+                          `💰 *بهایێ گشتی:* ${total.toLocaleString()} د.ع%0A%0A` +
                           `👤 *ناڤ:* ${name}%0A` +
                           `📍 *باژێر:* ${city}%0A` +
                           `📞 *تەلەفۆن:* ${phone}`;
@@ -543,6 +612,9 @@
             let url = `https://wa.me/9647508913667?text=${message}`;
             window.open(url, '_blank');
         }
+
+        // ڤەکردنەکا سەرەتایی بئێخە کار
+        calculateTotal();
     </script>
 </body>
 </html>
