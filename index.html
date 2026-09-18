@@ -593,7 +593,7 @@
         <div class="free-shipping-banner" id="freeShippingBanner">
             <h4 id="bannerTitle">🚚 ئۆفەرا تایبەت: گەهاندنا بێبەرانبەر!</h4>
             <span id="bannerSub">بۆ هەمی باژێرێن عێراقێ هەتا سبەهی دەمژمێر 5ـێ ئێڤاری</span>
-            <div class="timer" id="demoTimer">دەمێ مایی: 24:00:00</div>
+            <div class="timer" id="demoTimer">دەمێ مایی: <span id="timerCountdown">00:00:00</span></div>
         </div>
 
         <div class="logo-area">
@@ -876,6 +876,42 @@
             document.getElementById('lightboxModal').style.display = 'none';
         }
 
+        // دەستپێکرنا کاتژمێرا ڕاستەقینە هەتا سبەهی سەعات 5ـێ ئێڤاری
+        function startCountdown() {
+            let now = new Date();
+            let targetTime = new Date();
+            
+            // ئەگەر ئەڤڕۆ دەمژمێر ژ 5ـێ ئێڤاری (17:00) بۆرقییە، کاتژمێر دێ بۆ سبەهی هێتە دانان
+            targetTime.setDate(now.getDate() + 1);
+            targetTime.setHours(17, 0, 0, 0); // سەعات 17:00 (5ـێ ئێڤاری)
+
+            function updateTimer() {
+                let currentTime = new Date().getTime();
+                let distance = targetTime.getTime() - currentTime;
+
+                if (distance < 0) {
+                    document.getElementById("timerCountdown").innerText = "ئۆفەر بۆرە!";
+                    return;
+                }
+
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                let timerElement = document.getElementById("timerCountdown");
+                if(timerElement) {
+                    timerElement.innerText = `${hours}:${minutes}:${seconds}`;
+                }
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
         function calculateTotal() {
             let qtyMeri = parseInt(document.getElementById('qtyMeri').value) || 0;
             let qtyCoffee = parseInt(document.getElementById('qtyCoffee').value) || 0;
@@ -884,9 +920,7 @@
             let priceCoffee = 40000;
             
             let subtotal = (qtyMeri * priceMeri) + (qtyCoffee * priceCoffee);
-            
             let shippingCost = 0; // گەهاندنا بێبەرانبەر بۆ هەمی باژێران
-
             let total = subtotal + shippingCost;
             
             document.getElementById('subtotalText').innerText = `بهایێ بەرهەما: ${subtotal.toLocaleString()} د.ع`;
@@ -1124,7 +1158,11 @@
             window.open(url, '_blank');
         }
 
-        calculateTotal();
+        // دەستپێکرنا کارپێکرنا گشت کاران دەما لاپەرە ڤەبوو
+        window.onload = function() {
+            startCountdown();
+            calculateTotal();
+        };
     </script>
 </body>
 </html>
