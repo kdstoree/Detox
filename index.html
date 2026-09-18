@@ -28,6 +28,38 @@
             border: 1px solid #332900;
         }
         
+        /* ئۆفەرا گەهاندنا بێبەرانبەر (Free Shipping Banner) */
+        .free-shipping-banner {
+            background: linear-gradient(135deg, #b8860b, #ffd700, #ff8c00);
+            color: #000;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: pulseBanner 2s infinite;
+        }
+        .free-shipping-banner h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        .free-shipping-banner .timer {
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ffd700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulseBanner {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
         .logo-area {
             font-size: 20px;
             font-weight: bold;
@@ -163,7 +195,7 @@
             z-index: 10;
         }
 
-        /* Lightbox Modal بۆ مەزنکرنا وێنەیان */
+        /* Lightbox Modal */
         .lightbox-modal {
             display: none;
             position: fixed;
@@ -232,7 +264,7 @@
             font-weight: bold;
         }
 
-        /* متمانە و باوەڕی (Trust Badges) */
+        /* Trust Badges */
         .trust-badges {
             display: flex;
             justify-content: space-around;
@@ -256,7 +288,7 @@
             font-size: 16px;
         }
 
-        /* ڕاوبۆچوونێن کڕیاران (Testimonials) */
+        /* Testimonials */
         .reviews-section {
             background: #111111;
             border: 1px solid #332900;
@@ -488,7 +520,6 @@
             object-fit: cover;
         }
 
-        /* ترپەدانا دوگمەیا واتسابی بۆ سەرنجڕاکێشکرنێ */
         @keyframes pulseWhatsapp {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -558,6 +589,13 @@
     </div>
 
     <div class="container">
+        <!-- ئۆفەرا گەهاندنا بێبەرانبەر (Free Shipping Banner) -->
+        <div class="free-shipping-banner" id="freeShippingBanner">
+            <h4 id="bannerTitle">🚚 ئۆفەرا تایبەت: گەهاندنا بێبەرانبەر!</h4>
+            <span id="bannerSub">بۆ هەمی باژێرێن عێراقێ هەتا سبەهی دەمژمێر 5ـێ ئێڤاری</span>
+            <div class="timer" id="demoTimer">دەمێ مایی: 24:00:00</div>
+        </div>
+
         <div class="logo-area">
             <span>✨</span> <span id="siteTitle">DETOX CENTER DUHOK</span> <span>✨</span>
         </div>
@@ -598,7 +636,7 @@
                 <div class="product-title">Meri Detox Premium</div>
                 <div class="product-desc" id="desc1">
                     🔥 شۆره‌شا ڤه‌گه‌ڕاندنا ساخله‌می و رێكخستنا له‌شی!
-                    گه‌ر ته‌ بڤێت بێی ماندووبوون و ب شێوازه‌كێ سروشتی كێشا خۆ كێم بکه‌ی و ژ ژه‌هرێن له‌شی رزگار ببى، Meri Detox Premium هەلبژاردنا ته‌ یا ئێكه‌م و متمانه‌پێكری یه‌! 🌱✨
+                    گه‌ر ته‌ بڤێت بێی ماندووبوون و ب شێوازه‌كێ سروشتی كێشا خۆ کێم بکه‌ی و ژ ژه‌هرێن له‌شی رزگار ببى، Meri Detox Premium هەلبژاردنا ته‌ یا ئێكه‌م و متمانه‌پێكری یه‌! 🌱✨
                     
                     📦 خاسیه‌ت و مه‌زنیا ڤی به‌رهەمی:
                     • هاریكارە بو پاکژکرنا لِشی و ژێبرنا ژه‌هر و مایكرووبێن زیانبەخش.
@@ -648,14 +686,14 @@
         <div class="order-section" id="contactSec">
             <h3 id="orderTitle">🛒 داواکرنا بەرهەمی و زێدەکرنا دانان</h3>
 
-            <!-- هێماکێن متمانەیێ (Trust Badges) -->
+            <!-- Trust Badges -->
             <div class="trust-badges">
                 <div class="trust-item"><span>💯</span>بەرهەمێ 100% ڕەسەن</div>
-                <div class="trust-item"><span>🚀</span>گەهاندنا ب لەز</div>
+                <div class="trust-item" style="color: #ffd700; font-weight: bold;"><span>🚀</span>گەهاندنا بێبەرانبەر</div>
                 <div class="trust-item"><span>🔒</span>پاراستنا زانیاریان</div>
             </div>
 
-            <!-- ڕاوبۆچوونێن کڕیاران (Testimonials) -->
+            <!-- Testimonials -->
             <div class="reviews-section">
                 <h4 id="reviewTitle">⭐ راوبۆچوونێن کڕیارێن مە</h4>
                 <div class="review-card">
@@ -665,7 +703,7 @@
                 </div>
                 <div class="review-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    "گەهاندن گەلەک ب لەز بوو و قەهوا ئالّا تامەکا نایاب هەیە. دەستخۆش."
+                    "گەهاندن بێبەرانبەر بوو و قەهوا ئالّا تامەکا نایاب هەیە. دەستخۆش."
                     <div class="author">- ن. م. (هەولێر)</div>
                 </div>
             </div>
@@ -708,9 +746,9 @@
 
                 <div class="total-box">
                     <div id="subtotalText">بهایێ بەرهەما: 55,000 د.ع</div>
-                    <div id="shippingText">بهایێ گەهاندنێ: 3,000 د.ع (گەهاندن 24 دەمژمێر)</div>
+                    <div id="shippingText" style="color: #ffd700; font-weight: bold;">بهایێ گەهاندنێ: 0 د.ع (گەهاندنا بێبەرانبەر هەتا سبەهی 5ـێ ئێڤاری)</div>
                     <span style="font-size: 14px; color: #d1d5db;" id="totalLabel">بهایێ گشتی (المجموع):</span>
-                    <span class="total-price-val" id="totalPriceDisplay">58,000 د.ع</span>
+                    <span class="total-price-val" id="totalPriceDisplay">55,000 د.ع</span>
                 </div>
 
                 <div class="form-group">
@@ -722,29 +760,29 @@
                     <label for="customerCity" id="labelCity">باژێر:</label>
                     <select id="customerCity" class="form-control" onchange="calculateTotal()" required>
                         <option value="" disabled selected>باژێرێ خۆ هەڵبژێرە</option>
-                        <option value="دهۆک">دەهۆک (Duhok) - گەهاندن 3,000 (24 دەمژمێر)</option>
-                        <option value="زاخۆ">زاخۆ (Zakho) - گەهاندن 3,000 (24 دەمژمێر)</option>
-                        <option value="سێمێل">سێمێل (Semel) - گەهاندن 3,000 (24 دەمژمێر)</option>
-                        <option value="خانکێ">خانکێ (Khanke) - گەهاندن 3,000 (24 دەمژمێر)</option>
-                        <option value="شارییا">شارییا (Shariya) - گەهاندن 3,000 (24 دەمژمێر)</option>
-                        <option value="هەولێر">هەولێر (Erbil) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="سلێمانی">سلێمانی (Sulaymaniyah) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="هەڵەبجە">هەڵەبجە (Halabja) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="شەنگال">شەنگال (Sinjar) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="کەرکووک">کەرکووک (Kirkuk) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="موسڵ">موسڵ / نەینەوا (Mosul) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="بەغدا">بەغدا (Baghdad) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="باسڕە">باسڕە (Basra) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="ئەنبار">ئەنبار (Anbar) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="نەجەف">نەجەف (Najaf) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="کەربەلا">کەربەلا (Karbala) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="بابل">بابل (Babylon) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="دیالە">دیالە (Diyala) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="واست">واست (Wasit) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="میسان">میسان (Maysan) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="زیقار">زیقار / ناسریە (Dhi Qar) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="موسەنا">موسەنا (Muthanna) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
-                        <option value="سەلاحەدین">سەلاحەدین (Salah al-Din) - گەهاندن 5,000 (3-4 ڕۆژ)</option>
+                        <option value="دهۆک">دەهۆک (Duhok)</option>
+                        <option value="زاخۆ">زاخۆ (Zakho)</option>
+                        <option value="سێمێل">سێمێل (Semel)</option>
+                        <option value="خانکێ">خانکێ (Khanke)</option>
+                        <option value="شارییا">شارییا (Shariya)</option>
+                        <option value="هەولێر">هەولێر (Erbil)</option>
+                        <option value="سلێمانی">سلێمانی (Sulaymaniyah)</option>
+                        <option value="هەڵەبجە">هەڵەبجە (Halabja)</option>
+                        <option value="شەنگال">شەنگال (Sinjar)</option>
+                        <option value="کەرکووک">کەرکووک (Kirkuk)</option>
+                        <option value="موسڵ">موسڵ / نەینەوا (Mosul)</option>
+                        <option value="بەغدا">بەغدا (Baghdad)</option>
+                        <option value="باسڕە">باسڕە (Basra)</option>
+                        <option value="ئەنبار">ئەنبار (Anbar)</option>
+                        <option value="نەجەف">نەجەف (Najaf)</option>
+                        <option value="کەربەلا">کەربەلا (Karbala)</option>
+                        <option value="بابل">بابل (Babylon)</option>
+                        <option value="دیالە">دیالە (Diyala)</option>
+                        <option value="واست">واست (Wasit)</option>
+                        <option value="میسان">میسان (Maysan)</option>
+                        <option value="زیقار">زیقار / ناسریە (Dhi Qar)</option>
+                        <option value="موسەنا">موسەنا (Muthanna)</option>
+                        <option value="سەلاحەدین">سەلاحەدین (Salah al-Din)</option>
                     </select>
                 </div>
 
@@ -829,7 +867,6 @@
             showSlide(productNum, currentIndexes[productNum] + direction);
         }
 
-        /* Lightbox Functions */
         function openLightbox(imgSrc) {
             document.getElementById('lightboxImg').src = imgSrc;
             document.getElementById('lightboxModal').style.display = 'flex';
@@ -848,21 +885,12 @@
             
             let subtotal = (qtyMeri * priceMeri) + (qtyCoffee * priceCoffee);
             
-            let selectedCity = document.getElementById('customerCity').value;
-            let shippingCost = 3000;
-            let shippingTimeText = "(گەهاندن 24 دەمژمێر)";
+            let shippingCost = 0; // گەهاندنا بێبەرانبەر بۆ هەمی باژێران
 
-            const cities5k = ["هەولێر", "سلێمانی", "هەڵەبجە", "شەنگال", "کەرکووک", "موسڵ", "بەغدا", "باسڕە", "ئەنبار", "نەجەف", "کەربەلا", "بابل", "دیالە", "واست", "میسان", "زیقار", "موسەنا", "سەلاحەدین"];
-            
-            if (cities5k.includes(selectedCity)) {
-                shippingCost = 5000;
-                shippingTimeText = "(گەهاندن 3 بۆ 4 ڕۆژ)";
-            }
-
-            let total = subtotal + (subtotal > 0 ? shippingCost : 0);
+            let total = subtotal + shippingCost;
             
             document.getElementById('subtotalText').innerText = `بهایێ بەرهەما: ${subtotal.toLocaleString()} د.ع`;
-            document.getElementById('shippingText').innerText = `بهایێ گەهاندنێ: ${shippingCost.toLocaleString()} د.ع ${subtotal > 0 ? shippingTimeText : ''}`;
+            document.getElementById('shippingText').innerText = `بهایێ گەهاندنێ: 0 د.ع (گەهاندنا بێبەرانبەر بۆ هەمی باژێران)`;
             document.getElementById('totalPriceDisplay').innerText = total.toLocaleString() + ' د.ع';
         }
 
@@ -889,11 +917,13 @@
                 menuProducts: 'بەرهەمین مە',
                 menuAbout: 'دەباریا مە',
                 menuContact: 'پەیوەندی',
+                bannerTitle: '🚚 ئۆفەرا تایبەت: گەهاندنا بێبەرانبەر!',
+                bannerSub: 'بۆ هەمی باژێرێن عێراقێ هەتا سبەهی دەمژمێر 5ـێ ئێڤاری',
                 aboutTitle: '🌿 دەباریا مە (About Us)',
                 aboutText: 'مە کۆمپانیایا DETOX CENTER DUHOK بۆ بازرگانیا گشتی ل دهۆکێ. ئەم باشترین و ئۆرجینالترین بەرهەمێن تورکی (مارکێن BANDIS & MERI & ALA) بۆ ساخلەمی و جوانیێ پێشکێش بەستەرێن خۆ دکەین ب گەرەنتیەکا تەواو.',
                 productsTitle: '✨ بەرهەمێن مە (Products)',
                 badge1: '🔥 زۆرترین فرۆشراو | كواليتى به‌رز',
-                desc1: `🔥 شۆره‌شا ڤه‌گه‌ڕاندنا ساخله‌می و رێكخستنا له‌شی!\nگه‌ر ته‌ بڤێت بێی ماندووبوون و ب شێوازه‌كێ سروشتی كێشا خۆ كێم بکه‌ی و ژ ژه‌هرێن له‌شی رزگار ببى، Meri Detox Premium هەلبژاردنا ته‌ یا ئێكه‌م و متمانه‌پێكری یه‌! 🌱✨\n\n📦 خاسیه‌ت و مه‌زنیا ڤی به‌رهەمی:\n• هاریكارە بو پاکژکرنا لِشی و ژێبرنا ژه‌هر و مایكرووبێن زیانبەخش.\n• رێژا سووتاندنا چه‌وریێن لِشی ب شێوه‌یه‌كێ به‌رچاڤ زێده‌ دكه‌ت.\n• هه‌ستا تێربوونێ ددەت و هوشیاریا ته‌ درێژژيان دکه‌ت.`,
+                desc1: `🔥 شۆره‌شا ڤه‌گه‌ڕاندنا ساخله‌می و رێكخستنا له‌شی!\nگه‌ر ته‌ بڤێت بێی ماندووبوون و ب شێوازه‌كێ سروشتی كێشا خۆ کێم بکه‌ی و ژ ژه‌هرێن له‌شی رزگار ببى، Meri Detox Premium هەلبژاردنا ته‌ یا ئێكه‌م و متمانه‌پێكری یه‌! 🌱✨\n\n📦 خاسیه‌ت و مه‌زنیا ڤی به‌رهەمی:\n• هاریكارە بو پاکژکرنا لِشی و ژێبرنا ژه‌هر و مایكرووبێن زیانبەخش.\n• رێژا سووتاندنا چه‌وریێن لِشی ب شێوه‌یه‌كێ به‌رچاڤ زێده‌ دكه‌ت.\n• هه‌ستا تێربوونێ ددەت و هوشیاریا ته‌ درێژژيان دکه‌ت.`,
                 guar1: '🛡️ ضمان دگەلدایە بۆ هەیفەکی تو فایندەی نەبینی دێ پارێن تە هێنە ڤەگەراندن',
                 std1: '⚡ ستانده‌ر: هەیڤی 7 تا 10 کیلۆیان کێم دکەت',
                 badge2: '☕ بەرهەمێ نوی | قەهوا ئالّا',
@@ -920,6 +950,8 @@
                 menuProducts: 'بەرهەمەکانمان',
                 menuAbout: 'دەربارەی ئێمە',
                 menuContact: 'پەیوەندی',
+                bannerTitle: '🚚 ئۆفەری تایبەت: گەیاندنی بێبەرانبەر!',
+                bannerSub: 'بۆ هەموو شارەکانی عێراق هەتا سبەی کاتژمێر 5ـی ئێوارە',
                 aboutTitle: '🌿 دەربارەی ئێمە (About Us)',
                 aboutText: 'کۆمپانیای DETOX CENTER DUHOK بۆ بازرگانی گشتی لە دهۆک. باشترین و ئۆرجینالترین بەرهەمە تورکییەکان (مارکەکانی BANDIS & MERI & ALA) بۆ تەندروستی و جوانی بە دڵنیایی تەواوەوە پێشکەش بە بەڕێزتان دەکەین.',
                 productsTitle: '✨ بەرهەمەکانمان (Products)',
@@ -951,6 +983,8 @@
                 menuProducts: 'Products',
                 menuAbout: 'About Us',
                 menuContact: 'Contact',
+                bannerTitle: '🚚 Special Offer: Free Shipping!',
+                bannerSub: 'To all Iraqi cities until tomorrow at 5:00 PM',
                 aboutTitle: '🌿 About Us',
                 aboutText: 'DETOX CENTER DUHOK general trading company in Duhok. We offer the best and original Turkish products (BANDIS, MERI & ALA brands) for health and beauty with full guarantee.',
                 productsTitle: '✨ Our Products',
@@ -982,6 +1016,8 @@
                 menuProducts: 'منتجاتنا',
                 menuAbout: 'من نحن',
                 menuContact: 'اتصل بنا',
+                bannerTitle: '🚚 عرض خاص: توصيل مجاني!',
+                bannerSub: 'لجميع المدن العراقية حتى غداً الساعة 5 عصراً',
                 aboutTitle: '🌿 من نحن (About Us)',
                 aboutText: 'شركة DETOX CENTER DUHOK للتجارة العامة في دهوك. نقدم أفضل المنتجات التركية الأصلية (ماركات BANDIS & MERI & ALA) للصحة والجمال بضمان تام.',
                 productsTitle: '✨ منتجاتنا (Products)',
@@ -1018,6 +1054,8 @@
             document.getElementById('menuProducts').innerText = t.menuProducts;
             document.getElementById('menuAbout').innerText = t.menuAbout;
             document.getElementById('menuContact').innerText = t.menuContact;
+            document.getElementById('bannerTitle').innerText = t.bannerTitle;
+            document.getElementById('bannerSub').innerText = t.bannerSub;
             document.getElementById('aboutTitle').innerText = t.aboutTitle;
             document.getElementById('aboutText').innerText = t.aboutText;
             document.getElementById('productsTitle').innerText = t.productsTitle;
@@ -1066,13 +1104,8 @@
             let meriPrice = qtyMeri * 55000;
             let coffeePrice = qtyCoffee * 40000;
             let subtotal = meriPrice + coffeePrice;
-
-            let shippingCost = 3000;
-            const cities5k = ["هەولێر", "سلێمانی", "هەڵەبجە", "شەنگال", "کەرکووک", "موسڵ", "بەغدا", "باسڕە", "ئەنبار", "نەجەف", "کەربەلا", "بابل", "دیالە", "واست", "میسان", "زیقار", "موسەنا", "سەلاحەدین"];
-            if (cities5k.includes(city)) {
-                shippingCost = 5000;
-            }
-            let total = subtotal + shippingCost;
+            let shippingCost = 0; // گەهاندنا بێبەرانبەر
+            let total = subtotal;
 
             let orderDetails = '';
             if (qtyMeri > 0) orderDetails += `• Meri Detox: ${qtyMeri} دانە (${meriPrice.toLocaleString()} د.ع)%0A`;
@@ -1080,8 +1113,8 @@
             
             let message = `🛒 *داخوازییا نوی ل DETOX CENTER DUHOK*%0A%0A` +
                           `${orderDetails}` +
-                          `📦 *بهایێ گەهاندنێ:* ${shippingCost.toLocaleString()} د.ع%0A` +
-                          `💰 *بهایێ گشتی (دگەل گەهاندنێ):* ${total.toLocaleString()} د.ع%0A%0A` +
+                          `📦 *بهایێ گەهاندنێ:* 🎁 بێبەرانبەر (ئۆفەرا هەتا سبەهی 5ـێ ئێڤاری)%0A` +
+                          `💰 *بهایێ گشتی:* ${total.toLocaleString()} د.ع%0A%0A` +
                           `👤 *ناڤ:* ${name}%0A` +
                           `🏙️ *باژێر:* ${city}%0A` +
                           `📍 *ناڤونیشان:* ${address}%0A` +
